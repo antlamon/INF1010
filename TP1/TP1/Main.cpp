@@ -10,13 +10,14 @@
 #include "panier.h"
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
 int main()
 {
 	//C'est à vous de voir si vous devez allouer dynamiquement ou non les élèments
-
+	cout << fixed << setprecision(2);
 	//1-  Creez 15 objets de la classe produit
 	Produit** produits = new Produit*[15];
 	for (int i = 0; i < 15; i++)
@@ -72,7 +73,7 @@ int main()
 			delete produits[i];
 	}
 	delete[] produits;
-	produits = 0;
+	produits = nullptr;
 	
     return 0;
 }

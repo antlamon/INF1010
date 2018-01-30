@@ -59,7 +59,7 @@ void Panier::livrer()
 
 void Panier::afficher()
 {
-	cout << "Contenu du panier: " << endl;
+	cout << "Contenu du panier: prix: " << totalAPayer_ << endl;
 
 	for (int i = 0; i < nombreContenu_; i++)
 	{
