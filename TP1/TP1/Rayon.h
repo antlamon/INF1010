@@ -17,7 +17,9 @@ public:
 	// Constructeurs par defaut et par paraametres
     //Rayon();
 	Rayon(string cat = "inconnu");
-   
+
+	~Rayon();
+
 	// Methodes d'acces
 	string obtenirCategorie() const;
 	Produit ** obtenirTousProduits() const;

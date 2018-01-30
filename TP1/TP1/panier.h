@@ -1,4 +1,3 @@
-
 //  panier.cpp
 //  Created by Martine Bellaiche on 18-01-22.
 //  Copyright © 2018 Martine Bellaiche. All rights reserved.
@@ -12,7 +11,8 @@
 class Panier
 {
 public:
-    Panier (int capacite);
+    Panier(int capacite);
+	~Panier();
     // methodes d'accès
     Produit **  obtenirContenuPanier() const;
     int obtenirNombreContenu() const;

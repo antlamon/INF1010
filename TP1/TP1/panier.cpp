@@ -8,6 +8,17 @@ Panier::Panier(int capacite)
 	contenuPanier_ = new Produit*[capacite];
 }
 
+Panier::~Panier() 
+{
+	for (int i = 0; i < nombreContenu_; ++i)
+	{
+		delete contenuPanier_[i];
+		contenuPanier_[i] = nullptr;
+	}
+	delete[] contenuPanier_;
+	contenuPanier_ = nullptr;
+}
+
 Produit ** Panier::obtenirContenuPanier() const
 {
 	return contenuPanier_;
@@ -30,6 +41,7 @@ void Panier::ajouter(Produit * prod)
 		augmenterCapaciteTableau();
 	}
 	contenuPanier_[nombreContenu_++] = prod;
+	totalAPayer_ += prod->obtenirPrix();
 }
 
 void Panier::livrer()
@@ -39,7 +51,8 @@ void Panier::livrer()
 		delete contenuPanier_[i];
 		contenuPanier_[i] = nullptr;
 	}
-
+	delete[] contenuPanier_;
+	contenuPanier_ = nullptr;
 	nombreContenu_ = 0;
 	totalAPayer_ = 0;
 }

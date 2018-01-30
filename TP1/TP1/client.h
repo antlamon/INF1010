@@ -33,7 +33,6 @@ public:
     void afficherPanier();
     void livrerPanier();
     
-    
 private:
     
     string nom_;
