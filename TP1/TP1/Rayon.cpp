@@ -69,7 +69,7 @@ void Rayon::augmenterCapaciteTableau()
 
 void Rayon::afficher() const
 {
-	cout << "Categorie Rayon: " << categorie_ << endl;
+	cout << "Categorie Rayon: " << obtenirCategorie() << endl;
 	cout << " Produits disponibles: " << endl;
 	for (int i = 0; i < nombreProduits_; ++i)
 	{
