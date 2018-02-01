@@ -23,7 +23,7 @@ public:
     // autres méthodes
     void ajouter ( Produit * prod);
     void livrer();
-    void afficher();
+    void afficher() const;
 
 private:
     

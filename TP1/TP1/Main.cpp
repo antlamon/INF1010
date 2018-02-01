@@ -67,10 +67,13 @@ int main()
 	client.afficherPanier();
 
 	//13-  terminer le programme correctement
-	for (int i = 9; i < 15; i++)
+	for (int i = 0; i < 15; i++)
 	{
-		if (produits[i] != nullptr)
+//		if (produits[i] != nullptr)
+//		{
 			delete produits[i];
+			produits[i] = nullptr;
+//		}
 	}
 	delete[] produits;
 	produits = nullptr;

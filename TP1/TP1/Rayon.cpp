@@ -10,11 +10,6 @@ Rayon::Rayon(string cat)
 
 Rayon::~Rayon()
 {
-	for (int i = 0; i < nombreProduits_; ++i)
-	{
-		delete tousProduits_[i];
-		tousProduits_[i] = nullptr;
-	}
 	delete[] tousProduits_;
 	tousProduits_ = nullptr;
 }
