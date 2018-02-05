@@ -3,6 +3,12 @@
 * Date: 20 janvier 2018
 * Auteur: Mohammed Esseddik BENYAHIA
 *******************************************/
+/********************************************
+* Titre: Travail pratique #1 -Produit.h
+* Date: 25 janvier 2018
+* Auteur: Frédéric Fortin(1900664) et Antoine Lamontagne(1907605)
+*******************************************/
+
 
 #ifndef PRODUIT_H
 #define PRODUIT_H

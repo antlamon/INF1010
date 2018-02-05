@@ -1,7 +1,7 @@
 /********************************************
 * Titre: Travail pratique #1 -Rayon.h
-* Date: 20 janvier 2018
-* Auteur: 
+* Date: 25 janvier 2018
+* Auteur: Frédéric Fortin(1900664) et Antoine Lamontagne(1907605)
 *******************************************/
 
 #ifndef RAYON_H
@@ -17,7 +17,6 @@ public:
 	// Constructeurs par defaut et par paraametres
     //Rayon();
 	Rayon(string cat = "inconnu");
-
 	~Rayon();
 
 	// Methodes d'acces
@@ -34,6 +33,7 @@ public:
     void ajouterProduit (Produit * produit);
     void afficher() const;
 
+	//Constante
 	const int INCREMENT_CAPACITE = 5;
 
 private:
@@ -44,6 +44,7 @@ private:
     int capaciteProduits_;
 	int nombreProduits_;
 
+	//Méthodes privés
 	void creerTableau();
 	void augmenterCapaciteTableau();
 };
