@@ -3,9 +3,16 @@
 * Date: 25 janvier 2018
 * Auteur: Timoth�e CHAUVIN
 *******************************************/
+/**************************************************
+* Titre: Travail pratique #2 - Rayon.cpp
+* Date: 8 février 2018
+* Auteur: Frédéric Fortin(1900664) et Antoine Lamontagne(1907605)
+* Classe qui représente un rayon d'un magasin quelconque.
+**************************************************/
 
 #include "Rayon.h"
 
+//Constructeur utilisant la catégorie du rayon.
 Rayon::Rayon(const string& cat) :
 	categorie_{ cat },
 	capaciteProduits_{ 0 },
@@ -15,8 +22,7 @@ Rayon::Rayon(const string& cat) :
 
 Rayon::~Rayon()
 {
-	/*if (tousProduits_ != nullptr)
-		delete tousProduits_;*/
+	
 }
 
 // Methodes d'acces
@@ -46,6 +52,7 @@ void Rayon::modifierCategorie(const string& cat)
 	categorie_ = cat;
 }
 
+// Surcharge de l'opérateur += pour ajouter facilement un produit au rayon.
 Rayon& Rayon::operator+=(Produit * prod)
 {
 	tousProduits_.push_back(prod);
@@ -53,6 +60,7 @@ Rayon& Rayon::operator+=(Produit * prod)
 	return *this;
 }
 
+// Compte le nombre d'occurence d'un produit dans la liste de produit du rayon.
 int Rayon::compterDoublons(const Produit & produit)
 {
 	int nbDoublons = 0;
@@ -64,6 +72,7 @@ int Rayon::compterDoublons(const Produit & produit)
 	return nbDoublons;
 }
 
+// Surcharge de l'opérateur << pour permettre l'affichage d'un rayon.
 ostream & operator<<(ostream & cout, const Rayon & rayon)
 {
 	cout << "Le rayon " << rayon.categorie_ << ": " << endl;

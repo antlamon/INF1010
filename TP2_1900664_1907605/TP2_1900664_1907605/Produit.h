@@ -3,6 +3,11 @@
 * Date: 25 janvier 2018
 * Auteur: Mohammed Esseddik BENYAHIA & Timoth�e CHAUVIN
 *******************************************/
+/**************************************************
+* Titre: Travail pratique #2 - Produit.h
+* Date: 8 février 2018
+* Auteur: Frédéric Fortin(1900664) et Antoine Lamontagne(1907605)
+**************************************************/
 
 #pragma once
 

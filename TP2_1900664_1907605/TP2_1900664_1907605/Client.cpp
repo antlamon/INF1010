@@ -3,9 +3,16 @@
 * Date: 25 janvier 2018
 * Auteur: Mohammed Esseddik BENYAHIA & Timothée CHAUVIN
 *******************************************/
+/**************************************************
+* Titre: Travail pratique #2 - client.cpp
+* Date: 8 février 2018
+* Auteur: Frédéric Fortin(1900664) et Antoine Lamontagne(1907605)
+Classe ayant les informations concernant le client du site internet lui permmettant de faire ses achats
+**************************************************/
 
 #include "Client.h"
 
+//Constructeur qui crée un client ayant les paramètres comme attributs.
 Client::Client(const string&  nom, const string& prenom, int identifiant, const string& codePostal, long date) :
 	nom_{ nom },
 	prenom_{ prenom },
@@ -16,6 +23,8 @@ Client::Client(const string&  nom, const string& prenom, int identifiant, const 
 {
 }
 
+//Constructeur de copie qui crée un objet en utilisant les attributs d'un objet existant.
+//Gère la copie en profondeur des produits du panier.
 Client::Client(const Client& client) : 
 	nom_{ client.nom_ },
 	prenom_{ client.prenom_ },
@@ -91,7 +100,7 @@ void Client::modifierDateNaissance(long date)
 	dateNaissance_ = date;
 }
 
-// Autres méthodes
+// Permet à un client d'acheter un produit.
 void Client::acheter(Produit * prod)
 {
 	if (monPanier_ == nullptr)
@@ -99,6 +108,7 @@ void Client::acheter(Produit * prod)
 	monPanier_->ajouter(prod);
 }
 
+// Livre le panier du client et vidant celui-ci.
 void Client::livrerPanier()
 {
 	monPanier_->livrer();
@@ -106,6 +116,7 @@ void Client::livrerPanier()
 	monPanier_ = nullptr;
 }
 
+// Surchage de l'opérateur = pour permettre de copier les attributs d'un objet existant vers un autre objet existant.
 Client& Client::operator=(const Client & client)
 {
 	modifierNom(client.obtenirNom());
@@ -121,6 +132,7 @@ Client& Client::operator=(const Client & client)
 	return *this;
 }
 
+// Surchage de l'opérateur == qui permet de vérifier si deux clients ont le même identifiant.
 bool Client::operator==(const int & id) const
 {
 	return identifiant_ == id;
@@ -131,6 +143,7 @@ bool operator==(const int & id, const Client & client)
 	return client == id;
 }
 
+// Surcharge de l'opérateur << pour permettre l'affichage d'un client.
 ostream & operator<<(ostream & cout, const Client & client)
 {
 	if (client.monPanier_ != nullptr) {

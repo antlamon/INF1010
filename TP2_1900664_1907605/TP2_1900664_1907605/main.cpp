@@ -3,6 +3,12 @@
 * Date: 25 janvier 2018
 * Auteur: Mohammed Esseddik BENYAHIA & Timothée CHAUVIN
 **************************************************/
+/**************************************************
+* Titre: Travail pratique #2 - main.cpp
+* Date: 8 février 2018
+* Auteur: Frédéric Fortin(1900664) et Antoine Lamontagne(1907605)
+* Programme utilisant les différentes classes Client, Panier, Rayon et Produit. 
+**************************************************/
 
 #include "Produit.h"
 #include "Rayon.h"

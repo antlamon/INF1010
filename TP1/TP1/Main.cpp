@@ -77,6 +77,6 @@ int main()
 	}
 	delete[] produits;
 	produits = nullptr;
-	
+
     return 0;
 }

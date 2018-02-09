@@ -3,6 +3,11 @@
 * Date: 25 janvier 2018
 * Auteur: Timothée CHAUVIN
 *******************************************/
+/**************************************************
+* Titre: Travail pratique #2 - Rayon.h
+* Date: 8 février 2018
+* Auteur: Frédéric Fortin(1900664) et Antoine Lamontagne(1907605)
+**************************************************/
 
 #pragma once
 
