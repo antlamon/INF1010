@@ -12,6 +12,11 @@ Fournisseur::Fournisseur(const string & nom, const string & prenom, int identifi
 		satisfaction_.niveaux_[i] = 0;
 }
 
+Fournisseur::~Fournisseur()
+{
+	contenuCatalogue_.clear();
+}
+
 vector<Produit*> Fournisseur::obtenirCatalogue() const
 {
 	return contenuCatalogue_;

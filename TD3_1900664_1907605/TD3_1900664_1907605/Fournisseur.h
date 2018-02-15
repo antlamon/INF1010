@@ -21,6 +21,7 @@ class Fournisseur : public Usager
 {
 public:
 	Fournisseur(const string&  nom, const string& prenom, int identifiant, const string& codePostal);
+	~Fournisseur();
 		
 	vector<Produit*> obtenirCatalogue() const;
 	Satisfaction obtenirSatisfaction() const;
