@@ -1,7 +1,7 @@
 /********************************************
 * Titre: Travail pratique #3 - Usager.h
-* Date:
-* Auteur:
+* Date: 15 fevrier 2017
+* Auteur: Frédéric Fortin 1900664 Antoine Lamontagne 1907605
 *******************************************/
 
 #ifndef USAGER_H

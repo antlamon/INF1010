@@ -1,7 +1,7 @@
 /********************************************
 * Titre: Travail pratique #3 - Fournisseur.cpp
-* Date: 
-* Auteur:
+* Date: 15 fevrier 2017
+* Auteur: Frédéric Fortin 1900664 Antoine Lamontagne 1907605
 *******************************************/
 #include "Fournisseur.h"
 

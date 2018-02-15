@@ -1,7 +1,7 @@
 ﻿/**************************************************
 * Titre: Travail pratique #3 - main.cpp
-* Date: 
-* Auteur: 
+* Date: 15 fevrier 2017
+* Auteur: Frédéric Fortin 1900664 Antoine Lamontagne 1907605
 **************************************************/
 
 #include "Fournisseur.h"
@@ -80,6 +80,8 @@ int main()
 
 	// afficher le produit aux enchères
 	cout << *prodAuxEncheres << endl;
+
+	cout << martine << endl;
 
 	// Ma copie mise aussi  sur le produit  aux enchères
 	maCopie.miserProduit(prodAuxEncheres, 555);
