@@ -11,20 +11,25 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 using namespace std;
 
 const int  NB_PRODUCTS = 15;
 
 /**
 *Répondez aux questions ici :
-* 1/
+* 1/Car tous deux, étant des produits, partage différents attributs commun à tous les produits(prix,nom, type,etc.). Cependant, leur spécificité sont différents l'un de l'autre.
+Ainsi, les dériver de produits permet d'unir leur attribut commun sous la classe Produit et de garder leur spécificité dans leur classe.
 * 2/
-* 2.1
-* 2.2
+* 2.1 Car chaque dérivation différentes de la classe Produit à sa propre surcharge spécifique de l'opérateur. Ainsi, le typecast est important pour s'assurer que cela soit la bonne surcharge
+d'opérateur qui soit appelé pour chacun des produits dans le panier qui peut contenir tout les types de Produits.
+* 2.2 Sans précision sur le type, étant donné que le panier base sa liste de produit sur un vector<Produit>, pour chacun des produits, il appelera la surcharge de l'oppérateur << de la Classe Produit
+peu importe que cela soit un Produit, un ProduitOrdinaire ou un ProduitAuxEncheres.
 **/
 
 int main()
 {
+	cout << boolalpha << setprecision(2) << fixed;
 	// Creez un objet de classe client à l'aide du constructeur
 	Client martine("Bellaiche", "Martine", 1111, "H2T3A6", 199004);
 
@@ -38,7 +43,7 @@ int main()
 	if (maCopie == martine)
 		cout << "clients identitiques" << endl;
 	else
-		cout << " non Identiques " << endl;
+		cout << "non Identiques " << endl;
 
 	Client unAutreClient("Client", "autre", 2222, "h3T3A7", 20180212);
 	unAutreClient = maCopie;
@@ -86,12 +91,12 @@ int main()
 	cout << martine << endl;
 
 	// trouver le produit le plus cher du panier
-	cout << " Produit le plus cher "<< *martine.obtenirPanier()->trouverProduitPlusCher();
+	cout << " Produit le plus cher "<< *martine.obtenirPanier()->trouverProduitPlusCher() << endl;
 	
 	// livrer le panier du client martine
 	martine.livrerPanier();
 
-	// Afficher lefournisseur
+	// Afficher le fournisseur
 	cout << poly << endl;
 	
 	// Nettoyer la memoire 

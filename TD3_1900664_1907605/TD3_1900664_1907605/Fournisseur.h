@@ -1,7 +1,7 @@
 /********************************************
 * Titre: Travail pratique #3 - Fournisseur.h
-* Date: 
-* Auteur: 
+* Date: 15 février 2018
+* Auteur: Frédéric Fortin 1900664 Antoine Lamontagne 1907605
 *******************************************/
 
 #ifndef FOURNISSEUR_H
