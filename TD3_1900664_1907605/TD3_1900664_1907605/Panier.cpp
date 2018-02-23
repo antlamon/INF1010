@@ -64,8 +64,6 @@ void Panier::modifierIdClient(int idClient) {
 }
 
 
-
-
 void Panier::ajouter(Produit * prod)
 {
 	if (prod->retournerType() == TypeProduitOrdinaire)
