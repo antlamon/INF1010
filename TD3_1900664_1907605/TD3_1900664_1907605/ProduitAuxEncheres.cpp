@@ -41,6 +41,6 @@ istream & operator>>(istream & is, ProduitAuxEncheres & produit)
 ostream & operator<<(ostream & os, const ProduitAuxEncheres & produit)
 {
 	os << "Produit au enchere " << static_cast<Produit>(produit)
-		<< " \t \t Prix de base: " << produit.obtenirPrixBase() << endl << " \t \t Identifiant client:" << produit.obtenirIdentifiantClient() << endl;
+		<< " \t \t Prix de base: " << produit.obtenirPrixBase() << endl << " \t \t Identifiant client: " << produit.obtenirIdentifiantClient() << endl;
 	return os;
 }

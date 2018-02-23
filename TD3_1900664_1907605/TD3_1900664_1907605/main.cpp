@@ -81,8 +81,6 @@ int main()
 	// afficher le produit aux enchères
 	cout << *prodAuxEncheres << endl;
 
-	cout << martine << endl;
-
 	// Ma copie mise aussi  sur le produit  aux enchères
 	maCopie.miserProduit(prodAuxEncheres, 555);
 
