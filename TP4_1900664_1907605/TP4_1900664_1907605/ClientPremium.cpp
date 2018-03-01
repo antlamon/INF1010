@@ -37,9 +37,8 @@ double ClientPremium::obtenirTotalAPayer() const
 
 	for (Produit* prod : panier_)
 	{
-		total += fmax(prod->obtenirPrix(), 0);
+		total += fmax(prod->obtenirPrix() - 5, 0);
 	}
-
 	return total;
 }
 
@@ -48,7 +47,7 @@ double ClientPremium::obtenirTotalAPayer() const
 void ClientPremium::afficherProfil() const
 {
 	Client::afficherProfil();
-	cout << "\t\tjours restants: " << joursRestants_;
+	cout << "\t\tjours restants: " << joursRestants_ << endl;
 }
 
 //Méthode de modification

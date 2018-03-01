@@ -34,8 +34,8 @@ Client *ProduitAuxEncheres::obtenirEncherisseur() const
 void ProduitAuxEncheres::afficher() const
 {
 	Produit::afficher();
-	cout << "\t\tprix initial:\t" << prixInitial_ << endl
-		<< "\t\tencherisseur:\t" << encherisseur_->obtenirNom << endl;
+	cout << "\t\tprix initial:\t$" << prixInitial_ << endl
+		<< "\t\tencherisseur:\t" << encherisseur_->obtenirNom() << endl;
 }
 
 void ProduitAuxEncheres::modifierPrixInitial(double prixInitial)
@@ -49,8 +49,10 @@ void ProduitAuxEncheres::mettreAJourEnchere(Client *encherisseur, double nouveau
 	if (encherisseur_ != encherisseur)
 	{
 		modifierPrix(nouveauPrix);
-		encherisseur->ajouterProduit(this);
-		encherisseur_->enleverProduit(this);
+		if(encherisseur != nullptr)
+			encherisseur->ajouterProduit(this);
+		if(encherisseur_ != nullptr)
+			encherisseur_->enleverProduit(this);
 		encherisseur_ = encherisseur;
 	}
 }

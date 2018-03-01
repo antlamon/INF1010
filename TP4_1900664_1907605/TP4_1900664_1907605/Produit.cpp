@@ -43,7 +43,7 @@ void Produit::afficher() const
 {
 	cout << "\t" << nom_ << endl
 		<< "\t\treference:\t" << reference_ << endl
-		<< "\t\tprix:\t" << prix_ << endl;
+		<< "\t\tprix:\t\t$" << prix_ << endl;
 }
 
 void Produit::modifierNom(const string &nom)

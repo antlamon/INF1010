@@ -15,7 +15,8 @@ class Produit
 
     string obtenirNom() const;
     int obtenirReference() const;
-    double obtenirPrix() const;
+	//Virtual pour appliquer un solde.
+    virtual double obtenirPrix() const;
     Fournisseur *obtenirFournisseur() const;
 	//Virtual pour permettre l'affichage de differents produits
     virtual void afficher() const;

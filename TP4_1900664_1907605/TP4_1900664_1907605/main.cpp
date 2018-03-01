@@ -108,7 +108,7 @@ int main()
     tests.push_back(nem.obtenirNom() == "nem crevettes" &&
                     nem.obtenirReference() == 5 &&
                     nem.obtenirFournisseur() == &samuel &&
-                    nem.obtenirPrix() == 2 &&
+                    nem.obtenirPrix() == 2.0 &&
                     nem.obtenirPourcentageRabais() == 0);
 
     // une surenchère doit être strictement supérieure à l'offre précédente

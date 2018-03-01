@@ -63,6 +63,6 @@ void Gestionnaire::reinitialiser()
 //Méthode mettant à jour le produit aux encheres si le nouveau encherisseur propose une meilleur mise
 void Gestionnaire::encherir(Client *client, ProduitAuxEncheres *produit, double montant) const
 {
-	if (montant > produit->obtenirPrix)
+	if (montant > produit->obtenirPrix())
 		produit->mettreAJourEnchere(client, montant);
 }

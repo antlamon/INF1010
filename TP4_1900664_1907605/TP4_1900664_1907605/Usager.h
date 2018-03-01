@@ -21,7 +21,8 @@ class Usager
     string obtenirPrenom() const;
     int obtenirIdentifiant() const;
     string obtenirCodePostal() const;
-    double obtenirTotalAPayer() const;
+	//Virtual pour obtenir le total a payer d'un client.
+    virtual double obtenirTotalAPayer() const;
 	//Virtual pour diffencier l'affichage d'un client et d'un fournisseur.
     virtual void afficherProfil() const;
 

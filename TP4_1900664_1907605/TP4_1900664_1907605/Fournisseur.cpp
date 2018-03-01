@@ -41,7 +41,7 @@ void Fournisseur::afficherProfil() const
 //Supprime les elements du catalogue en reinitialisant le fournisseur du produit.
 void Fournisseur::reinitialiser()
 {
-	for(int i = catalogue_.size() - 1; i <= 0; --i)
+	for(int i = catalogue_.size() - 1; i >= 0; --i)
 	{
 		catalogue_[i]->modifierFournisseur(nullptr);
 		catalogue_.pop_back();

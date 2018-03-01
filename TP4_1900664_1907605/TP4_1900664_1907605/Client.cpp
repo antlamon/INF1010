@@ -38,6 +38,7 @@ double Client::obtenirTotalAPayer() const
 	{
 		total += prod->obtenirPrix();
 	}
+	return total;
 }
 
 void Client::afficherPanier() const
@@ -54,7 +55,7 @@ void Client::afficherProfil() const
 {
 	Usager::afficherProfil();
 	cout << "\t\tcode client:\t" << codeClient_ << endl
-		<< "\t\tpanier:\t" << panier_.size() << " elements" << endl;
+		<< "\t\tpanier:\t\t" << panier_.size() << " elements" << endl;
 }
 
 void Client::modifierCodeClient(unsigned int codeClient)
@@ -86,13 +87,15 @@ void Client::ajouterProduit(Produit *produit)
 //Reinitialise le panier en prenant soin d'enlever les produits aux encheres.
 void Client::reinitialiser()
 {
-	for (int i = panier_.size() - 1; i <= 0; --i)
+	int i = panier_.size() - 1;
+	for (i; i >= 0; --i)
 	{
 		ProduitAuxEncheres* prode = dynamic_cast<ProduitAuxEncheres*>(panier_[i]);
 		if (prode != nullptr)
 		{
 			prode->mettreAJourEnchere(nullptr, prode->obtenirPrixInitial());
 		}
-		panier_.pop_back();
+		else
+			panier_.pop_back();
 	}
 }
