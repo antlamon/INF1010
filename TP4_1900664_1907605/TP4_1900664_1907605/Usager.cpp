@@ -1,3 +1,8 @@
+/********************************************
+* Titre: Travail pratique #4 - Usager.cpp
+* Date: 1 mars 2018
+* Auteur: Frédéric Fortin 1900664 Antoine Lamontagne 1907605
+*******************************************/
 #include "Usager.h"
 #include <iostream>
 
@@ -30,14 +35,17 @@ string Usager::obtenirCodePostal() const
     return codePostal_;
 }
 
+//Une usager n'a pas de panier, donc rien a payer
 double Usager::obtenirTotalAPayer() const
 {
-    // TODO
+	return 0;
 }
 
+//Affiche le nom, prenom, identifiant et code postal d'un client.
 void Usager::afficherProfil() const
 {
-    // TODO
+	cout << "\t" << nom_ << ", " << prenom_ << " (" << identifiant_ << ")" << endl
+		<< "\t\t" << "code postal:\t" << codePostal_ << endl;
 }
 
 void Usager::modifierNom(const string &nom)
@@ -58,4 +66,9 @@ void Usager::modifierIdentifiant(int identifiant)
 void Usager::modifierCodePostal(const string &codePostal)
 {
     codePostal_ = codePostal;
+}
+
+bool Usager::operator==(const Usager & usager) const
+{
+	return identifiant_ == usager.obtenirIdentifiant();
 }

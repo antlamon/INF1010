@@ -71,5 +71,8 @@
     <ClCompile Include="Usager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Fournisseur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

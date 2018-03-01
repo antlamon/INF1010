@@ -1,3 +1,8 @@
+/********************************************
+* Titre: Travail pratique #4 - Client.h
+* Date: 1 mars 2018
+* Auteur: Frédéric Fortin 1900664 Antoine Lamontagne 1907605
+*******************************************/
 #ifndef CLIENT_H
 #define CLIENT_H
 
@@ -16,14 +21,14 @@ class Client : public Usager
 
     unsigned int obtenirCodeClient() const;
     vector<Produit *> obtenirPanier() const;
-    double obtenirTotalAPayer() const;
+    virtual double obtenirTotalAPayer() const;
     void afficherPanier() const;
-    void afficherProfil() const;
+	virtual void afficherProfil() const;
 
     void modifierCodeClient(unsigned int codeClient);
-    void enleverProduit(Produit *produit);
-    void ajouterProduit(Produit *produit);
-    void reinitialiser();
+    virtual void enleverProduit(Produit *produit);
+    virtual void ajouterProduit(Produit *produit);
+    virtual void reinitialiser();
   
   protected:
     vector<Produit *> panier_;

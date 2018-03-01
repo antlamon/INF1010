@@ -1,3 +1,8 @@
+/********************************************
+* Titre: Travail pratique #4 - Fournisseur.cpp
+* Date: 1 mars 2018
+* Auteur: Frédéric Fortin 1900664 Antoine Lamontagne 1907605
+*******************************************/
 #include "Fournisseur.h"
 #include <iostream>
 
@@ -26,14 +31,21 @@ void Fournisseur::afficherCatalogue() const
     cout << endl;
 }
 
+//Appelle la fonction afficherProfil de usager pour le nom et le code postal.
 void Fournisseur::afficherProfil() const
 {
-    // TODO
+	Usager::afficherProfil();
+	cout << "\t\tcatalogue:\t" << catalogue_.size() << " elements" <<  endl;
 }
 
+//Supprime les elements du catalogue en reinitialisant le pointeur du produit.
 void Fournisseur::reinitialiser()
 {
-    // TODO
+	for(int i = catalogue_.size() - 1; i <= 0; --i)
+	{
+		catalogue_[i]->modifierFournisseur(nullptr);
+		catalogue_.pop_back();
+	}
 }
 
 void Fournisseur::ajouterProduit(Produit *produit)

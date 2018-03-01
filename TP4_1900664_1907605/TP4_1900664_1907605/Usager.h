@@ -1,3 +1,8 @@
+/********************************************
+* Titre: Travail pratique #4 - Usager.h
+* Date: 1 mars 2018
+* Auteur: Frédéric Fortin 1900664 Antoine Lamontagne 1907605
+*******************************************/
 #ifndef USAGER_H
 #define USAGER_H
 
@@ -17,15 +22,17 @@ class Usager
     int obtenirIdentifiant() const;
     string obtenirCodePostal() const;
     double obtenirTotalAPayer() const;
-    void afficherProfil() const;
+    virtual void afficherProfil() const;
 
     void modifierNom(const string &nom);
     void modifierPrenom(const string &prenom);
     void modifierIdentifiant(int identifiant);
     void modifierCodePostal(const string &codePostal);
-    void reinitialiser();
-    void ajouterProduit(Produit *produit);
-    void enleverProduit(Produit *produit);
+	//Ajout du mot cle virtual pour permettre le polymorphisme
+    virtual void reinitialiser() = 0;
+    virtual void ajouterProduit(Produit *produit) = 0;
+	virtual void enleverProduit(Produit *produit) = 0;
+	bool operator==(const Usager& usager) const;
 
   private:
     string nom_;

@@ -32,6 +32,7 @@
   <ItemGroup>
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ClientPremium.cpp" />
+    <ClCompile Include="Fournisseur.cpp" />
     <ClCompile Include="Gestionnaire.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Produit.cpp" />

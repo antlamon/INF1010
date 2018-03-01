@@ -1,5 +1,11 @@
+/********************************************
+* Titre: Travail pratique #4 - Client.cpp
+* Date: 1 mars 2018
+* Auteur: Frédéric Fortin 1900664 Antoine Lamontagne 1907605
+*******************************************/
 #include "Client.h"
 #include <iostream>
+#include "ProduitAuxEncheres.h"
 
 Client::Client(unsigned int codeClient)
     : Usager(),
@@ -26,7 +32,11 @@ vector<Produit *> Client::obtenirPanier() const
 
 double Client::obtenirTotalAPayer() const
 {
-    // TODO
+	double total = 0;
+	for (Produit* prod : panier_)
+	{
+		total += prod->obtenirPrix();
+	}
 }
 
 void Client::afficherPanier() const
@@ -40,7 +50,9 @@ void Client::afficherPanier() const
 
 void Client::afficherProfil() const
 {
-    // TODO
+	Usager::afficherProfil();
+	cout << "\t\tcode client:\t" << codeClient_ << endl
+		<< "\t\tpanier:\t" << panier_.size() << " elements" << endl;
 }
 
 void Client::modifierCodeClient(unsigned int codeClient)
@@ -71,5 +83,13 @@ void Client::ajouterProduit(Produit *produit)
 
 void Client::reinitialiser()
 {
-    // TODO
+	for (int i = panier_.size() - 1; i <= 0; --i)
+	{
+		ProduitAuxEncheres* prode = dynamic_cast<ProduitAuxEncheres*>(panier_[i]);
+		if (prode != nullptr)
+		{
+			prode->mettreAJourEnchere(nullptr, prode->obtenirPrixInitial());
+		}
+		panier_.pop_back();
+	}
 }

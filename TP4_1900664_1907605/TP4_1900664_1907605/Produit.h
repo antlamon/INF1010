@@ -17,12 +17,13 @@ class Produit
     int obtenirReference() const;
     double obtenirPrix() const;
     Fournisseur *obtenirFournisseur() const;
-    void afficher() const;
+    virtual void afficher() const;
 
-    void modifierNom(const string &nom);
+    void modifierNom(const string& nom);
     void modifierReference(int reference);
     void modifierPrix(double prix);
     void modifierFournisseur(Fournisseur *fournisseur);
+	bool operator==(const Produit& prod);
 
   private:
     Fournisseur *fournisseur_;
