@@ -30,6 +30,7 @@ vector<Produit *> Client::obtenirPanier() const
     return panier_;
 }
 
+//Obtient le total a payer du panier.
 double Client::obtenirTotalAPayer() const
 {
 	double total = 0;
@@ -81,6 +82,7 @@ void Client::ajouterProduit(Produit *produit)
     panier_.push_back(produit);
 }
 
+//Reinitialise le panier en prenant soin d'enlever les produits aux encheres.
 void Client::reinitialiser()
 {
 	for (int i = panier_.size() - 1; i <= 0; --i)

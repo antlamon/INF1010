@@ -1,3 +1,8 @@
+/********************************************
+* Titre: Travail pratique #4 - Produit.cpp
+* Date: 1 mars 2018
+* Auteur: Frédéric Fortin 1900664 Antoine Lamontagne 1907605
+*******************************************/
 #include "Produit.h"
 #include "Fournisseur.h"
 #include <iostream>
@@ -33,9 +38,12 @@ Fournisseur *Produit::obtenirFournisseur() const
     return fournisseur_;
 }
 
+//Affiche les elements de base d'un produit.
 void Produit::afficher() const
 {
-    
+	cout << "\t" << nom_ << endl
+		<< "\t\treference:\t" << reference_ << endl
+		<< "\t\tprix:\t" << prix_ << endl;
 }
 
 void Produit::modifierNom(const string &nom)
@@ -58,6 +66,7 @@ void Produit::modifierFournisseur(Fournisseur *fournisseur)
     fournisseur_ = fournisseur;
 }
 
+//Compare la reference d'un produit qui devrait être unique.
 bool Produit::operator==(const Produit & prod)
 {
 	return reference_ == prod.obtenirReference();
