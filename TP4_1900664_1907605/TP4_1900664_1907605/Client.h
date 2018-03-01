@@ -21,11 +21,14 @@ class Client : public Usager
 
     unsigned int obtenirCodeClient() const;
     vector<Produit *> obtenirPanier() const;
+	//virtual ajoute pour modifier le total d'un client s'il est membre
     virtual double obtenirTotalAPayer() const;
     void afficherPanier() const;
+	//virtual ajoute pour differencier un client et un membre
 	virtual void afficherProfil() const;
 
     void modifierCodeClient(unsigned int codeClient);
+	//Mot cle virtual pour clarifier le code
     virtual void enleverProduit(Produit *produit);
     virtual void ajouterProduit(Produit *produit);
     virtual void reinitialiser();

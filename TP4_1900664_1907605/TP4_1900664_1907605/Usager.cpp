@@ -68,6 +68,7 @@ void Usager::modifierCodePostal(const string &codePostal)
     codePostal_ = codePostal;
 }
 
+//Compare l'identifiant entre deux clients (ils devraient être uniques).
 bool Usager::operator==(const Usager & usager) const
 {
 	return identifiant_ == usager.obtenirIdentifiant();

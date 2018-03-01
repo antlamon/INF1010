@@ -49,6 +49,7 @@ void Client::afficherPanier() const
     cout << endl;
 }
 
+//Affiche les elements de base d'un usager et les elements d'un client.
 void Client::afficherProfil() const
 {
 	Usager::afficherProfil();

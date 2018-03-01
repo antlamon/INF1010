@@ -22,13 +22,15 @@ class Usager
     int obtenirIdentifiant() const;
     string obtenirCodePostal() const;
     double obtenirTotalAPayer() const;
+	//Virtual pour diffencier l'affichage d'un client et d'un fournisseur.
     virtual void afficherProfil() const;
 
     void modifierNom(const string &nom);
     void modifierPrenom(const string &prenom);
     void modifierIdentifiant(int identifiant);
     void modifierCodePostal(const string &codePostal);
-	//Ajout du mot cle virtual pour permettre le polymorphisme
+	//Ajout du mot cle virtual pour permettre de modifier les methodes pour un client et un fournisseur.
+	//Virtuelle pure, car un usager n'a pas de panier, donc pas de produit.
     virtual void reinitialiser() = 0;
     virtual void ajouterProduit(Produit *produit) = 0;
 	virtual void enleverProduit(Produit *produit) = 0;

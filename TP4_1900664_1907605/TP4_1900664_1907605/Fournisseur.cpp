@@ -38,7 +38,7 @@ void Fournisseur::afficherProfil() const
 	cout << "\t\tcatalogue:\t" << catalogue_.size() << " elements" <<  endl;
 }
 
-//Supprime les elements du catalogue en reinitialisant le pointeur du produit.
+//Supprime les elements du catalogue en reinitialisant le fournisseur du produit.
 void Fournisseur::reinitialiser()
 {
 	for(int i = catalogue_.size() - 1; i <= 0; --i)
