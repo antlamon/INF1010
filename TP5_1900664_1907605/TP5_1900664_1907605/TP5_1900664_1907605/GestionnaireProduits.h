@@ -21,3 +21,17 @@
 - obtenirProduitsEntre();
 - obtenirProduitSuivant();
 */
+
+class GestionnaireProduits : public GestionnaireGenerique<Produit, multimap<int, Produit*>, AjouterProduit, SupprimerProduit>
+{
+  public:
+	  //Méthodes Publiques
+	  void reinitialiserClient();
+	  void reinitialiserFournisseur();
+	  void afficher() const;
+	  double obtenirTotalAPayer() const;
+	  double obtenirTotalApayerPremium() const;
+	  Produit* trouverProduitPlusCher() const;
+	  vector<pair<int, Produit*>> obtenirProduitsEntre() const;
+	  Produit* obtenirProduitSuivant(Produit* prod) const;
+};
