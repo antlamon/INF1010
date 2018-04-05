@@ -10,7 +10,7 @@ double GestionnaireUsagers::obtenirChiffreAffaires() const
 {
 	double chiffreAffaire = 0.0;
 	//Incrémente le chiffre d'affaire selon le total a payer d'un usager pour tous les usagers
-	for_each(conteneur_.begin(), conteneur_.end(), [&](Usager * usager) {chiffreAffaire += usager->obtenirTotalAPayer(); });
+	pourChaqueElement<>([&](Usager * usager) {chiffreAffaire += usager->obtenirTotalAPayer(); });
 	return chiffreAffaire;
 }
 
@@ -22,10 +22,10 @@ void GestionnaireUsagers::encherir(Client * client, ProduitAuxEncheres * produit
 
 void GestionnaireUsagers::reinitialiser()
 {
-	for_each(conteneur_.begin(), conteneur_.end(), [](Usager * usager) {usager->reinitialiser(); });
+	pourChaqueElement<>([](Usager * usager) {usager->reinitialiser(); });
 }
 
 void GestionnaireUsagers::afficherProfils() const
 {
-	for_each(conteneur_.begin(), conteneur_.end(), [](Usager* usager) {usager->afficher(); cout << endl; });
+	pourChaqueElement<>([](Usager * usager) {usager->afficher(); cout << endl; });
 }

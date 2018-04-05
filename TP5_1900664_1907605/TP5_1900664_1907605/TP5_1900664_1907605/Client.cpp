@@ -6,7 +6,7 @@ Client::Client(unsigned int codeClient)
     : Usager(),
       codeClient_(codeClient)
 {
-	// TODO : À modifier
+	gestionnaire_ = new GestionnaireProduits();
 }
 
 Client::Client(const string &nom, const string &prenom, int identifiant,
@@ -14,7 +14,12 @@ Client::Client(const string &nom, const string &prenom, int identifiant,
     : Usager(nom, prenom, identifiant, codePostal),
       codeClient_(codeClient)
 {
-	// TODO : À modifier
+	gestionnaire_ = new GestionnaireProduits();
+}
+
+Client::~Client()
+{
+	delete gestionnaire_;
 }
 
 unsigned int Client::obtenirCodeClient() const
@@ -22,37 +27,35 @@ unsigned int Client::obtenirCodeClient() const
     return codeClient_;
 }
 
-vector<Produit *> Client::obtenirPanier() const
+multimap<int, Produit *> Client::obtenirPanier() const
 {
-	// TODO : À modifier
-    return panier_;
+    return gestionnaire_->obtenirConteneur();
 }
 
 double Client::obtenirTotalAPayer() const
 {
-	// TODO : À modifier
     double montant = 0;
-    for (unsigned int i = 0; i < panier_.size(); i++)
-        montant += panier_[i]->obtenirPrix();
+	gestionnaire_->pourChaqueElement<>([&](Produit * prod) {montant += prod->obtenirPrix(); });
+    //for (unsigned int i = 0; i < panier_.size(); i++)
+    //    montant += panier_[i]->obtenirPrix();
     return montant;
 }
 
 void Client::afficherPanier() const
 {
-	// TODO : À modifier
     cout << "PANIER (de " << obtenirNom() << ")"
          << "\n";
-    for (unsigned int i = 0; i < panier_.size(); i++)
-        panier_[i]->afficher();
+	gestionnaire_->pourChaqueElement<>([](Produit * prod) {prod->afficher(); });
+    //for (unsigned int i = 0; i < panier_.size(); i++)
+    //    panier_[i]->afficher();
     cout << endl;
 }
 
 void Client::afficher() const
 {
-	// TODO : À modifier
     Usager::afficher();
     cout << "\t\tcode client:\t" << codeClient_ << endl
-         << "\t\tpanier:\t\t" << panier_.size() << " elements" << endl;
+         << "\t\tpanier:\t\t" << gestionnaire_->obtenirConteneur().size() << " elements" << endl;
 }
 
 void Client::modifierCodeClient(unsigned int codeClient)
@@ -62,37 +65,42 @@ void Client::modifierCodeClient(unsigned int codeClient)
 
 void Client::enleverProduit(Produit *produit)
 {
-	// TODO : À modifier
-    for (unsigned int i = 0; i < panier_.size(); i++)
-    {
-        if (panier_[i] == produit)
-        {
-            panier_[i] = panier_[panier_.size() - 1];
-            panier_.pop_back();
-            return;
-        }
-    }
+	gestionnaire_->supprimer(produit);
+    //for (unsigned int i = 0; i < panier_.size(); i++)
+    //{
+    //    if (panier_[i] == produit)
+    //    {
+    //        panier_[i] = panier_[panier_.size() - 1];
+    //        panier_.pop_back();
+    //        return;
+    //    }
+    //}
 }
 
 void Client::ajouterProduit(Produit *produit)
 {
-	// TODO : À modifier
-    for (unsigned int i = 0; i < panier_.size(); i++)
-        if (panier_[i] == produit)
-            return;
-    panier_.push_back(produit);
+	gestionnaire_->ajouter(produit);
+    //for (unsigned int i = 0; i < panier_.size(); i++)
+    //    if (panier_[i] == produit)
+    //        return;
+    //panier_.push_back(produit);
 }
 
 void Client::reinitialiser()
 {
-	// TODO : À modifier
-    for (unsigned int i = 0; i < panier_.size(); i++)
-    {
-        ProduitAuxEncheres *produit = dynamic_cast<ProduitAuxEncheres *>(panier_[i]);
-        if (produit) {
-            produit->modifierEncherisseur(nullptr);
-            produit->modifierPrix(produit->obtenirPrixInitial());
-        }
-    }
-    panier_.clear();
+    //for (unsigned int i = 0; i < panier_.size(); i++)
+    //{
+    //    ProduitAuxEncheres *produit = dynamic_cast<ProduitAuxEncheres *>(panier_[i]);
+    //    if (produit) {
+    //        produit->modifierEncherisseur(nullptr);
+    //        produit->modifierPrix(produit->obtenirPrixInitial());
+    //    }
+    //}
+	gestionnaire_->reinitialiserClient();
+    gestionnaire_->obtenirConteneur().clear();
+}
+
+Produit * Client::trouverProduitPlusCher() const
+{
+	return gestionnaire_->trouverProduitPlusCher();
 }

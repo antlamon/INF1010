@@ -4,69 +4,82 @@
 Fournisseur::Fournisseur()
     : Usager()
 {
+	gestionnaire_ = new GestionnaireProduits();
 }
 
 Fournisseur::Fournisseur(const string &nom, const string &prenom, int identifiant,
                          const string &codePostal)
     : Usager(nom, prenom, identifiant, codePostal)
 {
-	// TODO : À modifier
+	gestionnaire_ = new GestionnaireProduits();
 }
 
-vector<Produit *> Fournisseur::obtenirCatalogue() const
+Fournisseur::~Fournisseur()
 {
-	// TODO : À modifier
-    return catalogue_;
+	delete gestionnaire_;
+}
+
+multimap<int, Produit *> Fournisseur::obtenirCatalogue() const
+{
+    return gestionnaire_->obtenirConteneur();
 }
 
 void Fournisseur::afficherCatalogue() const
 {
-	// TODO : À modifier
     cout << "CATALOGUE (de " << obtenirNom() << ")"
          << "\n";
-    for (unsigned int i = 0; i < catalogue_.size(); i++)
-        catalogue_[i]->afficher();
+	gestionnaire_->pourChaqueElement<>([](Produit * prod) {prod->afficher(); });
+    //for (unsigned int i = 0; i < catalogue_.size(); i++)
+    //    catalogue_[i]->afficher();
     cout << endl;
 }
 
 void Fournisseur::afficher() const
 {
-	// TODO : À modifier
     Usager::afficher();
-    cout << "\t\tcatalogue:\t" << catalogue_.size() << " elements" << endl;
+    cout << "\t\tcatalogue:\t" << gestionnaire_->obtenirConteneur().size() << " elements" << endl;
 }
 
 void Fournisseur::reinitialiser()
 {
-	// TODO : À modifier
-    for (unsigned int i = 0; i < catalogue_.size(); i++)
-        catalogue_[i]->modifierFournisseur(nullptr);
-    catalogue_.clear();
+	gestionnaire_->reinitialiserFournisseur();
+	//for (unsigned int i = 0; i < catalogue_.size(); i++)
+    //    catalogue_[i]->modifierFournisseur(nullptr);
+    gestionnaire_->obtenirConteneur().clear();
 }
 
 void Fournisseur::ajouterProduit(Produit *produit)
 {
-	// TODO : À modifier
-    for (unsigned int i = 0; i < catalogue_.size(); i++)
-        if (catalogue_[i] == produit)
-            return;
+    //for (unsigned int i = 0; i < catalogue_.size(); i++)
+    //    if (catalogue_[i] == produit)
+    //        return;
     Fournisseur *fournisseur = produit->obtenirFournisseur();
     if (fournisseur != nullptr && fournisseur != this)
         fournisseur->enleverProduit(produit);
-    catalogue_.push_back(produit);
+	gestionnaire_->ajouter(produit);
 }
 
 void Fournisseur::enleverProduit(Produit *produit)
 {
-	// TODO : À modifier
     produit->modifierFournisseur(nullptr);
-    for (unsigned int i = 0; i < catalogue_.size(); i++)
-    {
-        if (catalogue_[i] == produit)
-        {
-            catalogue_[i] = catalogue_[catalogue_.size() - 1];
-            catalogue_.pop_back();
-            return;
-        }
-    }
+    //for (unsigned int i = 0; i < catalogue_.size(); i++)
+    //{
+    //    if (catalogue_[i] == produit)
+    //    {
+    //        catalogue_[i] = catalogue_[catalogue_.size() - 1];
+    //        catalogue_.pop_back();
+    //        return;
+    //    }
+    //}
+	gestionnaire_->supprimer(produit);
+}
+
+Produit * Fournisseur::trouverProduitPlusCher() const
+{
+	return gestionnaire_->trouverProduitPlusCher();
+}
+
+void Fournisseur::DiminuerPrix(int pourcent) const
+{
+	gestionnaire_->pourChaqueElement<FoncteurDiminuerPourcent>(FoncteurDiminuerPourcent(pourcent));
 }

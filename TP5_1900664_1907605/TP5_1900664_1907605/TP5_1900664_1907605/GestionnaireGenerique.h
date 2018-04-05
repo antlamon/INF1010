@@ -37,23 +37,23 @@ class GestionnaireGenerique
 	  C obtenirConteneur() const
 	  {
 		  return conteneur_;
-	  }
+	  };
 
 	  void ajouter(T* donnees)
 	  {
 		  A(donnees);
-	  }
+	  };
 
 	  void supprimer(T* donnees)
 	  {
 		  S(donnees);
-	  }
+	  };
 
 	  template<typename Predicate>
-	  void pourChaqueElement(Predicate predicat)
+	  void pourChaqueElement(Predicate predicat) const
 	  {
-		  for_each(C.begin(), C.end(), predicat());
-	  }
+		  for_each(C.begin(), C.end(), predicat);
+	  };
 
   protected:
 	  C conteneur_;
