@@ -21,6 +21,8 @@
 #include "Client.h"
 #include "ProduitAuxEncheres.h"
 #include <set>
+#include <map>
+#include <vector>
 
 using namespace std;
 
@@ -32,7 +34,7 @@ template< typename T, typename C, typename A, typename S>
 class GestionnaireGenerique
 {
   public:
-	  C obtenirConteneur()
+	  C obtenirConteneur() const
 	  {
 		  return conteneur_;
 	  }
