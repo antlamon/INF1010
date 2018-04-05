@@ -16,6 +16,11 @@
 - pourChaqueElement()
 */
 
+#include "Usager.h"
+#include "Foncteur.h"
+#include "Client.h"
+#include "ProduitAuxEncheres.h"
+#include <set>
 
 using namespace std;
 
