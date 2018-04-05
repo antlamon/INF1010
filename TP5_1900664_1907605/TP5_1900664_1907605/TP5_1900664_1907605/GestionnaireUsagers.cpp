@@ -5,3 +5,20 @@
 *******************************************/
 
 #include "GestionnaireUsagers.h"
+
+double GestionnaireUsager::obtenirChiffreAffaires() const
+{
+	return 0.0;
+}
+
+void GestionnaireUsager::encherir(Client * client, ProduitAuxEncheres * produit, double montant) const
+{
+}
+
+void GestionnaireUsager::reinitialiser()
+{
+}
+
+void GestionnaireUsager::afficherProfils() const
+{
+}
