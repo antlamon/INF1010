@@ -20,7 +20,7 @@ Les méthodes retrouvées de la classe Gestionnaire sont :
 */
 
 
-class GestionnaireUsager : public GestionnaireGenerique<Usager, set<Usager*>, AjouterUsager, SupprimerUsager>
+class GestionnaireUsagers : public GestionnaireGenerique<Usager, set<Usager*>, AjouterUsager, SupprimerUsager>
 {
   public:
 	  //Méthodes publiques

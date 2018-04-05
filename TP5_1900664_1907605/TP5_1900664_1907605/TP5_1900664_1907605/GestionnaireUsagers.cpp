@@ -6,19 +6,26 @@
 
 #include "GestionnaireUsagers.h"
 
-double GestionnaireUsager::obtenirChiffreAffaires() const
+double GestionnaireUsagers::obtenirChiffreAffaires() const
 {
-	return 0.0;
+	double chiffreAffaire = 0.0;
+	//Incrémente le chiffre d'affaire selon le total a payer d'un usager pour tous les usagers
+	for_each(conteneur_.begin(), conteneur_.end(), [&](Usager * usager) {chiffreAffaire += usager->obtenirTotalAPayer(); });
+	return chiffreAffaire;
 }
 
-void GestionnaireUsager::encherir(Client * client, ProduitAuxEncheres * produit, double montant) const
+void GestionnaireUsagers::encherir(Client * client, ProduitAuxEncheres * produit, double montant) const
 {
+	if (montant > produit->obtenirPrix())
+		produit->mettreAJourEnchere(client, montant);
 }
 
-void GestionnaireUsager::reinitialiser()
+void GestionnaireUsagers::reinitialiser()
 {
+	for_each(conteneur_.begin(), conteneur_.end(), [](Usager * usager) {usager->reinitialiser(); });
 }
 
-void GestionnaireUsager::afficherProfils() const
+void GestionnaireUsagers::afficherProfils() const
 {
+	for_each(conteneur_.begin(), conteneur_.end(), [](Usager* usager) {usager->afficher(); cout << endl; });
 }
