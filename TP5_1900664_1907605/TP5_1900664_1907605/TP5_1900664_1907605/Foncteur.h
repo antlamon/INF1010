@@ -4,9 +4,27 @@
 * Auteur: Ryan Hardie
 *******************************************/
 
+#include <map>
+#include <set>
+#include <algorithm>
 #pragma once
 
 // TODO : Créer le FoncteurEgal
+template <typename T>
+class FoncteurEgal
+{
+public:
+	FoncteurEgal(T * t)
+		:t_(t) {};
+
+	bool operator()(pair<int, T *> paire) const
+	{
+		return t_ == paire.second;
+	};
+
+private:
+	T * t_;
+};
 
 // TODO : Créer le FoncteurGenerateurId
 /*
@@ -15,6 +33,20 @@ Attributs :
 Méthodes :
 - operator(); Incrémenter id_ à chaque appel
 */
+class FoncteurGenerateurId
+{
+public:
+	FoncteurGenerateurId()
+		:id_(0) {};
+
+	void operator()()
+	{
+		id_++;
+	};
+
+private:
+	int id_;
+};
 
 // TODO : Créer le FoncteurDiminuerPourcent
 /*
@@ -23,6 +55,22 @@ Attributs :
 Méthodes :
 - operator(); Calule le nouveau prix du Produit de la pair passé en paramètre et le modifie
 */
+class FoncteurDiminuerPourcent
+{
+public:
+	FoncteurDiminuerPourcent(int pourcentage)
+		:pourcentage_(pourcentage) {};
+
+	void operator()(pair<int, Produit *> paire)
+	{
+		//Calculer le nouveau prix
+		double nouveauPrix = (1 - pourcentage_ / 100.0) * paire.second->obtenirPrix();
+		paire.second->modifierPrix(nouveauPrix);
+	};
+
+private:
+	int pourcentage_;
+};
 
 // TODO : Créer le FoncteurIntervalle
 /*
@@ -32,6 +80,20 @@ Attributs :
 Méthodes :
 - operator(); Vérifie que le Produit associé à la pair passé en paramètre est compris entre les bornes borneInf_ et borneSup_ (retourne un booléen)
 */
+class FoncteurIntervalle
+{
+public:
+	FoncteurIntervalle(double min, double max)
+		:borneInf_(min), borneSup_(max) {};
+
+	bool operator()(double val) const
+	{
+		return val <= borneSup_ && val >= borneInf_;
+	};
+
+private:
+	double borneInf_, borneSup_;
+};
 
 // TODO : Créer le Foncteur AjouterProduit
 /*
@@ -40,6 +102,22 @@ Attributs :
 Méthodes :
 - operator(); Ajoute dans la multimap la pair passé par paramètre et retourne la multimap_;
 */
+class AjouterProduit
+{
+	AjouterProduit(multimap<int, Produit *> & map)
+		:multimap_(map) {};
+
+	multimap<int, Produit *> & operator()(Produit * prod)
+	{
+		auto it = multimap_.end();
+		back_inserter(multimap_);
+		it->second = prod;
+		return multimap_;
+	};
+
+private:
+	multimap<int, Produit *> & multimap_;
+};
 
 // TODO : Créer le Foncteur SupprimerProduit
 /*
@@ -50,6 +128,22 @@ Méthodes :
 				on supprime le Produit et on retourne la multimap_,
 				sinon on retourne juste la multimap_ sans supprimer l'élément.
 */
+class SupprimerProduit
+{
+	SupprimerProduit(multimap<int, Produit *> & map)
+		:multimap_(map) {};
+
+	multimap<int, Produit *> & operator()(Produit * prod)
+	{
+		auto it = find_if(multimap_.begin(), multimap_.end(), FoncteurEgal<Produit>(prod));
+		if(it != multimap_.end())
+			multimap_.erase(it);
+		return multimap_;
+	};
+
+private:
+	multimap<int, Produit *> & multimap_;
+};
 
 //TODO : Créer le Foncteur AjouterUsager
 /*
@@ -58,3 +152,36 @@ Attributs :
 Méthodes :
 - operateur(); Trouve l'Usager dans le set_, s'il existe on le supprime et on retourne le set_, sinon on retourne juste directement le set_.
 */
+class AjouterUsager
+{
+	AjouterUsager(set<Usager *> & set)
+		:set_(set) {};
+
+	set<Usager *> & operator()(Usager * usager)
+	{
+		auto it = set_.end();
+		back_inserter(set_);
+		set_.insert(it, usager);
+		return set_;
+	};
+
+private:
+	set<Usager *> & set_;
+};
+
+//TODO : Créer le Foncteur SupprimerUsager
+class SupprimerUsager
+{
+	SupprimerUsager(set<Usager *> & set)
+		:set_(set) {};
+
+	set<Usager *> & operator()(Usager * usager)
+	{
+		if (usager != nullptr)
+			set_.erase(usager);
+		return set_;
+	};
+
+private:
+	set<Usager *> & set_;
+};
