@@ -17,7 +17,7 @@ class Fournisseur : public Usager
 	~Fournisseur();
 
 	// TODO : Modifier l'implémentation de ses méthodes : ----
-    multimap<int, Produit *> obtenirCatalogue() const;
+	GestionnaireProduits * obtenirCatalogue() const;
     void afficherCatalogue() const;
     virtual void afficher() const;
     virtual void reinitialiser();
