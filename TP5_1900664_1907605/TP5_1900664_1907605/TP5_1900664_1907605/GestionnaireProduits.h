@@ -32,6 +32,6 @@ class GestionnaireProduits : public GestionnaireGenerique<Produit, multimap<int,
 	  double obtenirTotalAPayer() const;
 	  double obtenirTotalApayerPremium() const;
 	  Produit* trouverProduitPlusCher() const;
-	  vector<pair<int, Produit*>> obtenirProduitsEntre() const;
+	  vector<pair<int, Produit*>> obtenirProduitsEntre(double par1, double par2) const;
 	  Produit* obtenirProduitSuivant(Produit* prod) const;
 };

@@ -86,9 +86,10 @@ public:
 	FoncteurIntervalle(double min, double max)
 		:borneInf_(min), borneSup_(max) {};
 
-	bool operator()(double val) const
+	bool operator()(pair<int, Produit*> prod) const
 	{
-		return val <= borneSup_ && val >= borneInf_;
+		double prix = prod.second->obtenirPrix();
+		return prix <= borneSup_ && prix >= borneInf_;
 	};
 
 private:
