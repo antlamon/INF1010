@@ -108,11 +108,9 @@ class AjouterProduit
 	AjouterProduit(multimap<int, Produit *> & map)
 		:multimap_(map) {};
 
-	multimap<int, Produit *> & operator()(Produit * prod)
+	multimap<int, Produit *> & operator()(pair<int, Produit *> paire)
 	{
-		auto it = multimap_.end();
-		back_inserter(multimap_);
-		it->second = prod;
+		multimap_.insert(multimap_.end(), paire);
 		return multimap_;
 	};
 
@@ -161,7 +159,6 @@ class AjouterUsager
 	set<Usager *> & operator()(Usager * usager)
 	{
 		auto it = set_.end();
-		back_inserter(set_);
 		set_.insert(it, usager);
 		return set_;
 	};
