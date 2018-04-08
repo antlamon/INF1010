@@ -34,8 +34,7 @@ multimap<int, Produit *> Client::obtenirPanier() const
 
 double Client::obtenirTotalAPayer() const
 {
-    double montant = 0;
-	gestionnaire_->pourChaqueElement<>([&](Produit * prod) {montant += prod->obtenirPrix(); });
+    double montant = gestionnaire_->obtenirTotalAPayer();
     //for (unsigned int i = 0; i < panier_.size(); i++)
     //    montant += panier_[i]->obtenirPrix();
     return montant;
@@ -97,7 +96,6 @@ void Client::reinitialiser()
     //    }
     //}
 	gestionnaire_->reinitialiserClient();
-    gestionnaire_->obtenirConteneur().clear();
 }
 
 Produit * Client::trouverProduitPlusCher() const

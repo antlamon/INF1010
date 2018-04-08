@@ -23,6 +23,7 @@
 #include <set>
 #include <map>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -52,7 +53,7 @@ class GestionnaireGenerique
 	  template<typename Predicate>
 	  void pourChaqueElement(Predicate predicat) const
 	  {
-		  for_each(C.begin(), C.end(), predicat);
+		  for_each(conteneur_.begin(), conteneur_.end(), predicat);
 	  };
 
   protected:

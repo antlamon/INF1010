@@ -45,7 +45,6 @@ void Fournisseur::reinitialiser()
 	gestionnaire_->reinitialiserFournisseur();
 	//for (unsigned int i = 0; i < catalogue_.size(); i++)
     //    catalogue_[i]->modifierFournisseur(nullptr);
-    gestionnaire_->obtenirConteneur().clear();
 }
 
 void Fournisseur::ajouterProduit(Produit *produit)
