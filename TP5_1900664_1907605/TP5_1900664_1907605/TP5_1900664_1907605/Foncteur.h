@@ -89,7 +89,9 @@ public:
 
 	bool operator()(pair<int, Produit*> prod) const
 	{
+		//Obtenir le prix
 		double prix = prod.second->obtenirPrix();
+		//Vérifier les bornes selon le prix
 		return prix <= borneSup_ && prix >= borneInf_;
 	};
 
@@ -152,7 +154,7 @@ private:
 Attributs :
 - &set;
 Méthodes :
-- operateur(); Trouve l'Usager dans le set_, s'il existe on le supprime et on retourne le set_, sinon on retourne juste directement le set_.
+- operateur(); Ajoute un Usager dans le conteneur.
 */
 class AjouterUsager
 {
@@ -172,6 +174,12 @@ private:
 };
 
 //TODO : Créer le Foncteur SupprimerUsager
+/*
+Attributs :
+- &set;
+Méthodes :
+- operateur(); Trouve l'Usager dans le set_, s'il existe on le supprime et on retourne le set_, sinon on retourne juste directement le set_.
+*/
 class SupprimerUsager
 {
 public:
