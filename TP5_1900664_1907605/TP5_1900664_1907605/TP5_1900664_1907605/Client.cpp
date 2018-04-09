@@ -26,9 +26,9 @@ unsigned int Client::obtenirCodeClient() const
     return codeClient_;
 }
 
-multimap<int, Produit *> Client::obtenirPanier() const
+GestionnaireProduits * Client::obtenirPanier() const
 {
-    return gestionnaire_->obtenirConteneur();
+    return gestionnaire_;
 }
 
 double Client::obtenirTotalAPayer() const

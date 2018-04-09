@@ -39,9 +39,9 @@ public:
 	FoncteurGenerateurId()
 		:id_(0) {};
 
-	void operator()()
+	int operator()()
 	{
-		id_++;
+		return id_++;
 	};
 
 private:

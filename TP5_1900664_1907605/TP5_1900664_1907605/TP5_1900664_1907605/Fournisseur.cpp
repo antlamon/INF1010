@@ -19,9 +19,9 @@ Fournisseur::~Fournisseur()
 	delete gestionnaire_;
 }
 
-multimap<int, Produit *> Fournisseur::obtenirCatalogue() const
+GestionnaireProduits * Fournisseur::obtenirCatalogue() const
 {
-    return gestionnaire_->obtenirConteneur();
+    return gestionnaire_;
 }
 
 void Fournisseur::afficherCatalogue() const

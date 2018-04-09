@@ -19,7 +19,7 @@ class Client : public Usager
     unsigned int obtenirCodeClient() const;
 	void modifierCodeClient(unsigned int codeClient);
 	// TODO : Modifier ces méthodes : -------------------
-    multimap<int, Produit *> obtenirPanier() const;
+	GestionnaireProduits * obtenirPanier() const;
     virtual double obtenirTotalAPayer() const;
     void afficherPanier() const;
     virtual void afficher() const;
