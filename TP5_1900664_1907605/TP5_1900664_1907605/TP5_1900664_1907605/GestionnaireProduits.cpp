@@ -56,7 +56,10 @@ vector<pair<int, Produit*>> GestionnaireProduits::obtenirProduitsEntre(double pa
 	return vec;
 }
 
+
+
 Produit * GestionnaireProduits::obtenirProduitSuivant(Produit * prod) const
 {
-	return (find_if(conteneur_.begin(), conteneur_.end(), bind(greater<Produit *>(), _1, prod)))->second;
+	return (find_if(conteneur_.begin(), conteneur_.end(), bind(greater<int>(), [](pair <int, Produit*> element)->int {return element.second->obtenirReference(); }, prod->obtenirReference())))->second;
 }
+
