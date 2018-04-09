@@ -47,6 +47,10 @@
     <ClInclude Include="Solde.h" />
     <ClInclude Include="Usager.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{72E60933-9163-4D94-9D38-8E27AC5D0505}</ProjectGuid>
