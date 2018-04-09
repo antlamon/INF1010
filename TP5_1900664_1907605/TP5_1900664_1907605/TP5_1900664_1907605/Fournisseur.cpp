@@ -28,7 +28,7 @@ void Fournisseur::afficherCatalogue() const
 {
     cout << "CATALOGUE (de " << obtenirNom() << ")"
          << "\n";
-	gestionnaire_->pourChaqueElement<>([](Produit * prod) {prod->afficher(); });
+	gestionnaire_->afficher();
     //for (unsigned int i = 0; i < catalogue_.size(); i++)
     //    catalogue_[i]->afficher();
     cout << endl;
@@ -78,7 +78,7 @@ Produit * Fournisseur::trouverProduitPlusCher() const
 	return gestionnaire_->trouverProduitPlusCher();
 }
 
-void Fournisseur::DiminuerPrix(int pourcent) const
+void Fournisseur::DiminuerPrix(int pourcent)
 {
-	gestionnaire_->pourChaqueElement<FoncteurDiminuerPourcent>(FoncteurDiminuerPourcent(pourcent));
+	gestionnaire_->pourChaqueElement(FoncteurDiminuerPourcent(pourcent));
 }

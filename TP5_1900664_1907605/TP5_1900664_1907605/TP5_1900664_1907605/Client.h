@@ -1,11 +1,7 @@
-#ifndef CLIENT_H
-#define CLIENT_H
-
-#include <string>
-#include <vector>
+#pragma once
 #include "Usager.h"
-#include "Produit.h"
 #include "GestionnaireProduits.h"
+#include <string>
 
 using namespace std;
 
@@ -37,5 +33,3 @@ class Client : public Usager
   private:
     unsigned int codeClient_;
 };
-
-#endif

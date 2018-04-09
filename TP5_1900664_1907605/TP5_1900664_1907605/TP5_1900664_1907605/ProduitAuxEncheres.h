@@ -1,9 +1,6 @@
-#ifndef PRODUIT_AUX_ENCHERES_H
-#define PRODUIT_AUX_ENCHERES_H
-
+#pragma once
 #include <string>
 #include <iostream>
-#include "Produit.h"
 #include "Client.h"
 
 using namespace std;
@@ -27,5 +24,3 @@ class ProduitAuxEncheres : public Produit
     double prixInitial_;
     Client *encherisseur_;
 };
-
-#endif

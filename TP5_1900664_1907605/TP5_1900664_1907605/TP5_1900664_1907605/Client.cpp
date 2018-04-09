@@ -44,7 +44,7 @@ void Client::afficherPanier() const
 {
     cout << "PANIER (de " << obtenirNom() << ")"
          << "\n";
-	gestionnaire_->pourChaqueElement<>([](Produit * prod) {prod->afficher(); });
+	gestionnaire_->afficher();
     //for (unsigned int i = 0; i < panier_.size(); i++)
     //    panier_[i]->afficher();
     cout << endl;

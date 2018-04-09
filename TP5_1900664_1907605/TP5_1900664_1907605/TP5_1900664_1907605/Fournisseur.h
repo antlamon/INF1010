@@ -1,11 +1,9 @@
-#ifndef FOURNISSEUR_H
-#define FOURNISSEUR_H
+#pragma once
 
 #include <string>
 #include <vector>
-#include "Usager.h"
-#include "Produit.h"
-#include "GestionnaireProduits.h"
+#include "Client.h"
+#include "GestionnaireUsagers.h"
 
 using namespace std;
 
@@ -27,10 +25,8 @@ class Fournisseur : public Usager
 
 	// TODO : implémenter les méthodes suivantes :
 	Produit* trouverProduitPlusCher() const;
-	void DiminuerPrix(int pourcent) const;
+	void DiminuerPrix(int pourcent);
 
   private:
     GestionnaireProduits * gestionnaire_;
 };
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef SOLDE_H
-#define SOLDE_H
+#pragma once
 
 #include <string>
 #include <iostream>
@@ -21,5 +20,3 @@ class Solde
   protected:
     int pourcentageRabais_;
 };
-
-#endif

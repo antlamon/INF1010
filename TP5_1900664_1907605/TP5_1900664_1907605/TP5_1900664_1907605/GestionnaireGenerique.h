@@ -16,18 +16,9 @@
 - pourChaqueElement()
 */
 
-#include "Usager.h"
 #include "Foncteur.h"
-#include "Client.h"
-#include "ProduitAuxEncheres.h"
-#include <set>
-#include <map>
-#include <vector>
-#include <algorithm>
-#include <functional>
 
 using namespace std;
-using namespace placeholders;
 
 //T=Produits ou usagers
 //C=conteneur
@@ -44,12 +35,14 @@ class GestionnaireGenerique
 
 	  void ajouter(T* donnees)
 	  {
-		  A(donnees);
+		  A ajout(conteneur_);
+		  conteneur_ = ajout(donnees);
 	  };
 
 	  void supprimer(T* donnees)
 	  {
-		  S(donnees);
+		  S suppression(conteneur_);
+		  conteneur_ = suppression(donnees);
 	  };
 
 	  template<typename Predicate>

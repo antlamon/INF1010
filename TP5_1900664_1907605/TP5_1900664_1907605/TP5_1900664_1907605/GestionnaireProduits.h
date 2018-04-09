@@ -7,6 +7,8 @@
 #pragma once
 
 #include "GestionnaireGenerique.h"
+#include "ProduitSolde.h"
+#include <vector>
 
 // TODO : Créer la classe GestionnaireProduits
 

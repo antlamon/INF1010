@@ -5,6 +5,9 @@
 *******************************************/
 
 #include "GestionnaireProduits.h"
+#include "ProduitAuxEncheres.h"
+#include <algorithm>
+#include <functional>
 
 void GestionnaireProduits::reinitialiserClient()
 {
@@ -12,19 +15,19 @@ void GestionnaireProduits::reinitialiserClient()
 													  if (produit) { produit->modifierEncherisseur(nullptr);
 													  produit->modifierPrix(produit->obtenirPrixInitial());
 													  }; };
-	pourChaqueElement<>(lambda);
+	for_each(conteneur_.begin(), conteneur_.end(), lambda);
 	conteneur_.clear();
 }
 
 void GestionnaireProduits::reinitialiserFournisseur()
 {
-	pourChaqueElement<>([](pair<int, Produit*> element ) {element.second->modifierFournisseur(nullptr);  });
+	for_each(conteneur_.begin(), conteneur_.end(),[](pair<int, Produit*> element ) {element.second->modifierFournisseur(nullptr);  });
 	conteneur_.clear();
 }
 
 void GestionnaireProduits::afficher() const
 {
-	pourChaqueElement<>([](pair<int, Produit*> element) {element.second->afficher(); cout << endl; });
+	pourChaqueElement<>([this](pair<int, Produit*> element) {element.second->afficher(); cout << "\t\texemplaire :\t" << conteneur_.count(element.first) << endl; });
 }
 
 double GestionnaireProduits::obtenirTotalAPayer() const
@@ -44,8 +47,12 @@ double GestionnaireProduits::obtenirTotalApayerPremium() const
 
 Produit * GestionnaireProduits::trouverProduitPlusCher() const
 {
-	auto lambda = ([](pair<int,Produit *> prod1, pair<int, Produit *> prod2) -> bool {return prod1.second->obtenirPrix() < prod2.second->obtenirPrix(); });
-	Produit *prod = max_element(conteneur_.begin(), conteneur_.end(), lambda)->second;
+	Produit * prod = nullptr;
+	if (!conteneur_.empty())
+	{
+		auto lambda = ([](pair<int, Produit *> prod1, pair<int, Produit *> prod2) -> bool {return prod1.second->obtenirPrix() < prod2.second->obtenirPrix(); });
+		prod = max_element(conteneur_.begin(), conteneur_.end(), lambda)->second;
+	}
 	return prod;
 }
 
@@ -58,5 +65,11 @@ vector<pair<int, Produit*>> GestionnaireProduits::obtenirProduitsEntre(double pa
 
 Produit * GestionnaireProduits::obtenirProduitSuivant(Produit * prod) const
 {
-	return (find_if(conteneur_.begin(), conteneur_.end(), bind(greater<Produit *>(), _1, prod)))->second;
+	Produit * produit = nullptr;
+	if (!conteneur_.empty())
+	{
+		auto lambda = [](pair <int, Produit *> element, Produit * prod) {return element.second->obtenirReference() > prod->obtenirReference(); };
+		produit = (find_if(conteneur_.begin(), conteneur_.end(), bind(lambda, placeholders::_1, prod)))->second;
+	}
+	return produit;
 }

@@ -1,9 +1,8 @@
 #include "Produit.h"
 #include "Fournisseur.h"
 #include <iostream>
-#include <string>
 
-Produit::Produit(Fournisseur *fournisseur, const string &nom, int reference, double prix)
+Produit::Produit(Fournisseur * fournisseur, const string &nom, int reference, double prix)
     : fournisseur_(fournisseur),
       nom_(nom),
       reference_(reference),

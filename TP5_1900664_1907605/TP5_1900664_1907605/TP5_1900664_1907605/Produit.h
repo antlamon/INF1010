@@ -1,6 +1,4 @@
-#ifndef PRODUIT_H
-#define PRODUIT_H
-
+#pragma once
 #include <string>
 
 using namespace std;
@@ -32,5 +30,3 @@ class Produit
   protected:
     double prix_;
 };
-
-#endif

@@ -22,7 +22,7 @@ void GestionnaireUsagers::encherir(Client * client, ProduitAuxEncheres * produit
 
 void GestionnaireUsagers::reinitialiser()
 {
-	pourChaqueElement<>([](Usager * usager) {usager->reinitialiser(); });
+	for_each(conteneur_.begin(), conteneur_.end(), [](Usager * usager) {usager->reinitialiser(); });
 }
 
 void GestionnaireUsagers::afficherProfils() const

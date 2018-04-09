@@ -1,5 +1,4 @@
-#ifndef PRODUIT_SOLDE_H
-#define PRODUIT_SOLDE_H
+#pragma once
 
 #include <string>
 #include <iostream>
@@ -18,5 +17,3 @@ class ProduitSolde : public Produit, public Solde
     virtual double obtenirPrix() const;
     virtual void afficher() const;
 };
-
-#endif

@@ -1,5 +1,4 @@
-#ifndef CLIENT_PREMIUM_H
-#define CLIENT_PREMIUM_H
+#pragma once
 
 #include <string>
 #include "Client.h"
@@ -14,12 +13,10 @@ class ClientPremium : public Client
 
     unsigned int obtenirJoursRestants() const;
     virtual double obtenirTotalAPayer() const;
-    virtual void afficherProfil() const;
+    virtual void afficher() const;
 
     void modifierJoursRestants(unsigned int joursRestants);
 
   private:
     unsigned int joursRestants_; // avant la fin de l'abonnement
 };
-
-#endif

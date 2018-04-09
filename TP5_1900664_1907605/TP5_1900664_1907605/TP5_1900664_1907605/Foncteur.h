@@ -3,11 +3,12 @@
 * Date: 9 mars 2018
 * Auteur: Ryan Hardie
 *******************************************/
-
+#pragma once
 #include <map>
 #include <set>
 #include <algorithm>
-#pragma once
+#include "Usager.h"
+
 
 // TODO : Créer le FoncteurEgal
 template <typename T>
@@ -64,7 +65,7 @@ public:
 	void operator()(pair<int, Produit *> paire)
 	{
 		//Calculer le nouveau prix
-		double nouveauPrix = (1 - pourcentage_ / 100.0) * paire.second->obtenirPrix();
+		double nouveauPrix = (1 - pourcentage_ / 100.0) * paire.second->Produit::obtenirPrix();
 		paire.second->modifierPrix(nouveauPrix);
 	};
 
@@ -105,12 +106,13 @@ Méthodes :
 */
 class AjouterProduit
 {
+public:
 	AjouterProduit(multimap<int, Produit *> & map)
 		:multimap_(map) {};
 
-	multimap<int, Produit *> & operator()(pair<int, Produit *> paire)
+	multimap<int, Produit *> & operator()(Produit * prod)
 	{
-		multimap_.insert(multimap_.end(), paire);
+		multimap_.insert(multimap_.end(), make_pair(prod->obtenirReference(), prod));
 		return multimap_;
 	};
 
@@ -129,6 +131,7 @@ Méthodes :
 */
 class SupprimerProduit
 {
+public:
 	SupprimerProduit(multimap<int, Produit *> & map)
 		:multimap_(map) {};
 
@@ -153,6 +156,7 @@ Méthodes :
 */
 class AjouterUsager
 {
+public:
 	AjouterUsager(set<Usager *> & set)
 		:set_(set) {};
 
@@ -170,6 +174,7 @@ private:
 //TODO : Créer le Foncteur SupprimerUsager
 class SupprimerUsager
 {
+public:
 	SupprimerUsager(set<Usager *> & set)
 		:set_(set) {};
 

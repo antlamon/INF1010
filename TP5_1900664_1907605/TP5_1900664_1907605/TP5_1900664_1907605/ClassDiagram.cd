@@ -1,2 +1,137 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Client" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAACCAAACAAgAgAAAkQAAAAEAAAAAAAAAkQAAAAAQ=</HashCode>
+      <FileName>Client.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClientPremium" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAAAAAAAAAAAAAAQAQAAAEAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>ClientPremium.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoncteurEgal&lt;T&gt;" Collapsed="true">
+    <Position X="12.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAgAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Foncteur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoncteurGenerateurId" Collapsed="true">
+    <Position X="14" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAQAAAgA=</HashCode>
+      <FileName>Foncteur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoncteurDiminuerPourcent" Collapsed="true">
+    <Position X="15.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAABAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Foncteur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FoncteurIntervalle" Collapsed="true">
+    <Position X="15.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAEACAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Foncteur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AjouterProduit" Collapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Foncteur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SupprimerProduit" Collapsed="true">
+    <Position X="14" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAEAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Foncteur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AjouterUsager" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEACAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Foncteur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SupprimerUsager" Collapsed="true">
+    <Position X="15.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEACAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Foncteur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fournisseur" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAQIICAAgAAEAAAAAAAAEAAAAAAAAAEQAAAAQA=</HashCode>
+      <FileName>Fournisseur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionnaireGenerique&lt;T, C, A, S&gt;" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAABAAAAABAAAAAAAAAAEAQAAAAAAAAAAA=</HashCode>
+      <FileName>GestionnaireGenerique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionnaireProduits" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAIAAACAAAAAAAAAQAAAAEAgAEAAAAAAAAAAIAA=</HashCode>
+      <FileName>GestionnaireProduits.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionnaireUsagers" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAgAAAAAAAAAAAAAAAAAAAAEAAAIAAA=</HashCode>
+      <FileName>GestionnaireUsagers.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Produit" Collapsed="true">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiAEAAAAAAAAAAACwAAAAAAECAAAAAgAABAQAIgAE=</HashCode>
+      <FileName>Produit.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProduitAuxEncheres" Collapsed="true">
+    <Position X="4.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAEAACAAAAAAKAEAAAAAAAQAAAAAAACA=</HashCode>
+      <FileName>ProduitAuxEncheres.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProduitSolde" Collapsed="true">
+    <Position X="4.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAQAgAAAAAAAAAA=</HashCode>
+      <FileName>ProduitSolde.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solde" Collapsed="true">
+    <Position X="7.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAgAAAAAAAAQACAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Solde.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Usager" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABEAAEAAAAIAAAAQACQAQICEAEAAAAAAAAAMQQAIAAE=</HashCode>
+      <FileName>Usager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

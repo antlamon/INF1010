@@ -1,5 +1,4 @@
-#ifndef USAGER_H
-#define USAGER_H
+#pragma once
 
 #include "Produit.h"
 #include <string>
@@ -33,5 +32,3 @@ class Usager
     int reference_;
     string codePostal_;
 };
-
-#endif
