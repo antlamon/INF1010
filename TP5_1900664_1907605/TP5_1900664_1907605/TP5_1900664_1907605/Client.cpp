@@ -1,5 +1,4 @@
 #include "Client.h"
-#include "ProduitAuxEncheres.h"
 #include <iostream>
 
 Client::Client(unsigned int codeClient)
