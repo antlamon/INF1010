@@ -9,6 +9,9 @@
 Solde::Solde(int pourcentageRabais)
 	: pourcentageRabais_(pourcentageRabais) {}
 
+//Le destructeur permet que solde soit une classe virtuelle pure
+Solde::~Solde() {}
+
 //Obtient le pourcentage de rabais du solde
 double Solde::obtenirPourcentageRabais() const
 {
