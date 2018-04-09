@@ -24,8 +24,10 @@
 #include <map>
 #include <vector>
 #include <algorithm>
+#include <functional>
 
 using namespace std;
+using namespace placeholders;
 
 //T=Produits ou usagers
 //C=conteneur

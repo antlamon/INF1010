@@ -38,13 +38,13 @@ double GestionnaireProduits::obtenirTotalApayerPremium() const
 {
 	double montant = 0.0;
 	double prix = 0.0;
-	pourChaqueElement<>([&](pair<int, Produit*>) {prix = prod->obtenirPrix();  montant += prix < 5 ? 0 : prix - 5 ; });
+	pourChaqueElement<>([&](pair<int, Produit*> element) {prix = element.second->obtenirPrix();  montant += prix < 5 ? 0 : prix - 5 ; });
 	return montant;
 }
 
 Produit * GestionnaireProduits::trouverProduitPlusCher() const
 {
-	auto lambda = ([](Produit * prod1, Produit * prod2) -> bool {return prod1->obtenirPrix() < prod2->obtenirPrix(); });
+	auto lambda = ([](pair<int,Produit *> prod1, pair<int, Produit *> prod2) -> bool {return prod1.second->obtenirPrix() < prod2.second->obtenirPrix(); });
 	Produit *prod = max_element(conteneur_.begin(), conteneur_.end(), lambda)->second;
 	return prod;
 }
@@ -58,5 +58,5 @@ vector<pair<int, Produit*>> GestionnaireProduits::obtenirProduitsEntre(double pa
 
 Produit * GestionnaireProduits::obtenirProduitSuivant(Produit * prod) const
 {
-	return nullptr;
+	return (find_if(conteneur_.begin(), conteneur_.end(), bind(greater<Produit *>(), _1, prod)))->second;
 }
