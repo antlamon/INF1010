@@ -28,23 +28,27 @@ template< typename T, typename C, typename A, typename S>
 class GestionnaireGenerique
 {
   public:
+	  //Obtient le conteneur de type C du gestionnaire
 	  C obtenirConteneur() const
 	  {
 		  return conteneur_;
 	  };
 
+	  //Ajoute des donnees de type T dans un conteneur de type C
 	  void ajouter(T* donnees)
 	  {
 		  A ajout(conteneur_);
 		  conteneur_ = ajout(donnees);
 	  };
 
+	  //Supprime les donnees T du conteneur de type C
 	  void supprimer(T* donnees)
 	  {
 		  S suppression(conteneur_);
 		  conteneur_ = suppression(donnees);
 	  };
 
+	  //Fonction qui permet d'utiliser un prédicat sur tous les elements T d'un conteneur 
 	  template<typename Predicate>
 	  void pourChaqueElement(Predicate predicat) const
 	  {
